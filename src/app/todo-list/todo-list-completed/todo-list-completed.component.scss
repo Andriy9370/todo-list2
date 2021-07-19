@@ -1,0 +1,9 @@
+@import '../todo-list.scss';
+
+.todo-list {
+  &__item {
+    &_completed {
+      text-decoration: line-through;
+    }
+  }
+}

@@ -1,0 +1,93 @@
+$todo__add_min-height: 143px;
+$todo__add_min-height_768: 113px;
+
+:host {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+
+  .todo {
+    &-block {
+      display: flex;
+      flex-direction: column;
+      margin: auto;
+    }
+
+    &__block {
+      height: 80%;
+      width: 50%;
+      min-width: 300px;
+    }
+
+    &__add {
+      display: flex;
+      min-height: $todo__add_min-height;
+      width: 100%;
+      flex-direction: column;
+    }
+
+    &__header {
+      font-size: 60px;
+      text-align: center;
+      margin-bottom: 30px;
+      color: #000000c9;
+      font-weight: 100;
+    }
+
+    &__list {
+      height: calc(50% - #{$todo__add_min-height} / 2);
+    }
+  }
+
+  .form {
+    display: flex;
+    align-items: center;
+
+    &__input {
+      margin-right: 20px;
+      min-width: 200px;
+      width: 100%;
+    }
+
+    &__button:not(:disabled) {
+      background-color: #24c80b;
+    }
+  }
+
+  .message-error {
+    color: red;
+    height: 24px;
+    width: 100%;
+  }
+
+  @media (max-width : 768px) {
+    .todo {
+      margin: 0;
+
+      &__block {
+        height: 90%;
+        width: 50%;
+        min-width: 300px;
+      }
+
+      &__header {
+        font-size: 40px;
+        text-align: center;
+        margin-bottom: 0px;
+        color: #000000c9;
+        font-weight: 100;
+      }
+
+      &__add {
+        min-height: $todo__add_min-height_768;
+      }
+
+      &__list {
+        height: calc(50% - #{$todo__add_min-height_768} / 2);
+      }
+    }
+  }
+
+
+}

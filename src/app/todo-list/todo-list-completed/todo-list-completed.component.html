@@ -1,0 +1,21 @@
+<ul class="todo-list">
+  <h2 class="todo-list__header" *ngIf="existsItem">Completed list</h2>
+  <section class="todo-list__section">      
+    <ng-container *ngFor="let item of inputList">
+        <li class="todo-list__item todo-list__item_completed">
+          <mat-checkbox color="primary" 
+                      [(ngModel)]="item.signCompleted" 
+                      (change)="changeTaskStatus(item)">
+              {{item.itemName}}
+          </mat-checkbox>
+          <button mat-mini-fab 
+                color="warn" 
+                class="todo-list__button" 
+                (click)="removeTask(item)">
+              <span class="material-icons">delete</span>
+          </button>
+        </li>
+    </ng-container>
+  </section>
+</ul>
+  

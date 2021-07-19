@@ -1,0 +1,55 @@
+<ul class="todo-list">
+  <section class="todo-list__section">
+    <ng-container *ngFor="let item of inputList">
+      <li class="todo-list__item">
+          <mat-checkbox *ngIf="!item.itemEdit" 
+                        color="primary" 
+                        [(ngModel)]="item.signCompleted" 
+                        (change)="changeTaskStatus(item)">
+            {{item.itemName}}
+          </mat-checkbox>
+
+          <ng-container *ngIf="item.itemEdit">
+            <input type="text"                           
+                   [(ngModel)]="item.itemName"
+                   class="todo-list__edit"
+                   #input1
+                   autofocus>
+          </ng-container>
+
+          <div *ngIf="!item.itemEdit" 
+               class="todo-list__buttons">
+            <button mat-mini-fab 
+                    color="warn" 
+                    class="todo-list__button todo-list__button_edit" 
+                    (click)="startEditTask(item)">
+                  <span class="material-icons">edit</span>
+            </button>
+            <button mat-mini-fab 
+                    color="warn" 
+                    class="todo-list__button" 
+                    (click)="removeTask(item)">
+                  <span class="material-icons">delete</span>
+            </button>
+          </div>
+          
+          <div *ngIf="item.itemEdit"
+                class="todo-list__buttons">        
+            <button mat-mini-fab 
+                    color="warn" 
+                    class="todo-list__button todo-list__button_edit" 
+                    (click)="endEditTask(item)">
+              <span class="material-icons">done</span>
+            </button>
+            <button mat-mini-fab 
+                    color="warn" 
+                    class="todo-list__button" 
+                    (click)="undoEditTask(item)">
+              <span class="material-icons">undo</span>
+            </button>
+          </div>
+
+      </li>
+    </ng-container>
+  </section>
+</ul>
